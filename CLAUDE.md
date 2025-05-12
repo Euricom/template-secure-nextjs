@@ -55,6 +55,12 @@ The project uses TailwindCSS v4 with CSS variables for theming:
 
 The project is set up as a template for secure Next.js applications (as implied by the repository name). When working with this codebase, ensure all security best practices are followed:
 
+### Environment Variables
+
+- Environment variables are validated using Zod in `src/env.ts`
+- Use the `.env.example` file as a template for required environment variables
+- Always access environment variables through the `env` object imported from `@/env.ts` rather than directly from `process.env`
+
 ### Content Security Policy (CSP)
 
 This project implements Content Security Policy using the `csp-header` package:
