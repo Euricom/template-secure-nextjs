@@ -55,7 +55,27 @@ The project uses TailwindCSS v4 with CSS variables for theming:
 
 The project is set up as a template for secure Next.js applications (as implied by the repository name). When working with this codebase, ensure all security best practices are followed:
 
-- Verify that proper CORS, CSP, and other security headers are implemented
+### Content Security Policy (CSP)
+
+This project implements Content Security Policy using the `csp-header` package:
+
+- CSP is implemented via a middleware (`src/middleware.ts`) that generates a unique nonce for each request
+- The middleware sets appropriate CSP directives to protect against XSS and other attacks
+- A utility function (`src/lib/csp.ts`) is provided to access the nonce value in components
+- To use the nonce in inline scripts, import the `getNonce()` function from `@/lib/csp`
+
+### Security Headers
+
+The following security headers are implemented in `next.config.ts`:
+
+- X-Content-Type-Options: Prevents MIME type sniffing
+- X-Frame-Options: Prevents clickjacking by prohibiting embedding in frames
+- X-XSS-Protection: Provides basic XSS protection (though CSP is the primary defense)
+- Referrer-Policy: Controls the information sent in the Referer header
+- Permissions-Policy: Restricts access to browser features (camera, microphone, geolocation)
+
+### Additional Security Best Practices
+
 - Ensure all API routes validate input properly
 - Follow secure authentication and authorization patterns
 - Keep dependencies updated to avoid security vulnerabilities
