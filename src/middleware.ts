@@ -32,14 +32,16 @@ export function middleware() {
   // Get the response
   const response = NextResponse.next();
 
-  
-  // Add the CSP header
-  const cspHeaderName = env.CSP_REPORT_ONLY ? 'content-security-policy-report-only' : 'content-security-policy';
-  response.headers.set(cspHeaderName, cspHeader);
-  
-  // Store the nonce in a header so it can be accessed in components
-  response.headers.set('x-nonce', nonce);
+  // Enable CSP if not disabled
+  if (env.CSP_MODE !== 'disabled') {
+    // Add the CSP header
+    const cspHeaderName = env.CSP_MODE === 'report-only' ? 'content-security-policy-report-only' : 'content-security-policy';
+    response.headers.set(cspHeaderName, cspHeader);
 
+    // Store the nonce in a header so it can be accessed in components
+    response.headers.set('x-nonce', nonce);
+  }
+  
   return response;
 }
 

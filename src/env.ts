@@ -9,7 +9,7 @@ export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
     LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).optional(),
-    CSP_REPORT_ONLY: z.boolean().optional(),
+    CSP_MODE: z.enum(['enforce', 'disabled', 'report-only']).default('disabled'),
     CSP_REPORT_URI: z.string().optional(),
   },
 
@@ -29,7 +29,7 @@ export const env = createEnv({
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     LOG_LEVEL: process.env.LOG_LEVEL,
-    CSP_REPORT_ONLY: process.env.CSP_REPORT_ONLY === 'true',
+    CSP_MODE: process.env.CSP_MODE,
     CSP_REPORT_URI: process.env.CSP_REPORT_URI,
   },
   /**
