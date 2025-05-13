@@ -1,5 +1,5 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
+import { createEnv } from "@t3-oss/env-nextjs";
+import { z } from "zod";
 
 export const env = createEnv({
   /**
@@ -7,10 +7,23 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-    LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error']).optional(),
-    CSP_MODE: z.enum(['enforce', 'disabled', 'report-only']).default('disabled'),
+    NODE_ENV: z
+      .enum(["development", "test", "production"])
+      .default("development"),
+    LOG_LEVEL: z.enum(["debug", "info", "warn", "error"]).optional(),
+    CSP_MODE: z
+      .enum(["enforce", "disabled", "report-only"])
+      .default("disabled"),
     CSP_REPORT_URI: z.string().optional(),
+    BETTER_AUTH_SECRET: z.string().min(32),
+    BETTER_AUTH_URL: z.string().url(),
+
+    MICROSOFT_CLIENT_ID: z.string(),
+    MICROSOFT_CLIENT_SECRET: z.string(),
+    MICROSOFT_TENANT_ID: z.string(),
+
+    GOOGLE_CLIENT_ID: z.string(),
+    GOOGLE_CLIENT_SECRET: z.string(),
   },
 
   /**
@@ -31,6 +44,15 @@ export const env = createEnv({
     LOG_LEVEL: process.env.LOG_LEVEL,
     CSP_MODE: process.env.CSP_MODE,
     CSP_REPORT_URI: process.env.CSP_REPORT_URI,
+    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
+    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
+
+    MICROSOFT_CLIENT_ID: process.env.MICROSOFT_CLIENT_ID,
+    MICROSOFT_CLIENT_SECRET: process.env.MICROSOFT_CLIENT_SECRET,
+    MICROSOFT_TENANT_ID: process.env.MICROSOFT_TENANT_ID,
+
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

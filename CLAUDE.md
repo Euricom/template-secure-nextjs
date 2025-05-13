@@ -47,6 +47,7 @@ pnpm lint
 ### Styling
 
 The project uses TailwindCSS v4 with CSS variables for theming:
+
 - Geist Sans and Geist Mono fonts are used throughout the application
 - The shadcn/ui components follow the "new-york" style
 - UI components support both light and dark modes

@@ -1,16 +1,25 @@
 {
-  "name": "my-app",
+  "name": "demo-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
+    "@prisma/client": "^6.5.0",
     "@radix-ui/react-slot": "^1.2.2",
     "@t3-oss/env-nextjs": "^0.13.4",
+    "better-auth": "^1.2.7",
+    "better-sqlite3": "^11.10.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "csp-header": "^6.1.0",
@@ -23,12 +32,15 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "prettier": "^3.5.3",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.2.9",
-    "typescript": "^5"
+    "typescript": "^5",
+    "prisma": "^6.5.0"
   },
   "packageManager": "pnpm@10.9.0+sha512.0486e394640d3c1fb3c9d43d49cf92879ff74f8516959c235308f5a8f62e2e19528a65cdc2a3058f587cde71eba3d5b56327c8c33a97e4c4051ca48a10ca2d5f"
 }

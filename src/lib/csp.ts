@@ -1,5 +1,5 @@
-import { headers } from 'next/headers';
-import { SELF, UNSAFE_INLINE, NONE, DATA, BLOB } from 'csp-header';
+import { headers } from "next/headers";
+import { SELF, UNSAFE_INLINE, NONE, DATA, BLOB } from "csp-header";
 
 /**
  * Gets the CSP nonce value from the request headers
@@ -7,5 +7,5 @@ import { SELF, UNSAFE_INLINE, NONE, DATA, BLOB } from 'csp-header';
  */
 export function getNonce(): string {
   const headersList = headers();
-  return headersList.get('x-nonce') || '';
+  return headersList.get("x-nonce") || "";
 }
