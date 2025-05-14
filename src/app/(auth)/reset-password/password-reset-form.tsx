@@ -63,6 +63,7 @@ export function PasswordResetForm() {
 
       setResetComplete(true)
     } catch (err) {
+      console.error(err)
       setError("Failed to reset password. Please try again or request a new link.")
     } finally {
       setIsLoading(false)

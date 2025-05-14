@@ -37,6 +37,7 @@ export function SignupForm() {
 
       setSignupComplete(true)
     } catch (err) {
+      console.error(err)
       setError("Failed to create account. Please try again.")
     } finally {
       setIsLoading(false)
