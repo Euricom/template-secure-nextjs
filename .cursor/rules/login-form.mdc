@@ -1,0 +1,23 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Login Form Component Rule
+
+The main login form is implemented in [login-form.tsx](mdc:src/app/(auth)/login/login-form.tsx). This component provides the authentication UI for users, supporting multiple login methods:
+
+- **Email & Password Login**: Users can enter their email and password to sign in. The form manages state for both fields and handles submission with a loading state.
+- **Magic Link Login**: Users can request a magic link to be sent to their email. The UI updates to show a confirmation message when the link is sent, and allows resending.
+- **Social Login**: Google and Microsoft login buttons are provided for alternative authentication methods.
+
+## Structure
+- Uses a tabbed interface to switch between email/password and magic link login.
+- Manages local state for form fields, loading, and magic link sent status using React's `useState`.
+- Utilizes custom UI components for inputs, buttons, labels, and tabs for a consistent look and feel.
+- Includes helpful comments and clear separation of concerns for each login method.
+
+## Usage
+- Import and render the `LoginForm` component in authentication-related pages.
+- Extend or modify the authentication logic in the form handlers as needed for your backend or auth provider.
+- UI is designed to be user-friendly and accessible, with clear feedback for loading and success states.

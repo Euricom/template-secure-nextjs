@@ -7,13 +7,35 @@ alwaysApply: false
 
 This project is a Next.js application with the following key files and directories:
 
-- [src/](mdc:src): Contains the main application source code, including pages, components, and utilities.
-- [prisma/](mdc:prisma): Contains database schema and related files for Prisma ORM.
-- [public/](mdc:public): Static assets such as images and icons.
-- [next.config.ts](mdc:next.config.ts): Next.js configuration file.
+- [src/](mdc:src): Main application source code.
+  - [app/](mdc:src/app): Routing, pages, and layouts.
+    - (auth): Authentication flows (login, signup, reset-password) and their components.
+    - admin, marketing, organization, products: Feature-specific sections.
+    - api/: API route handlers (e.g., auth).
+    - globals.css, layout.tsx, favicon.ico: Global styles and layout.
+  - [components/](mdc:src/components): Shared React components.
+    - ui/: Reusable UI elements (button, input, label, tabs).
+  - [lib/](mdc:src/lib): Utility functions and authentication logic.
+  - [middleware.ts](mdc:src/middleware.ts): Next.js middleware for request handling.
+  - [env.ts](mdc:src/env.ts): Environment variable management.
+  - [server/](mdc:src/server): Server-side logic (e.g., auth).
+
+- [prisma/](mdc:prisma): Prisma ORM database schema and SQLite file.
+  - schema.prisma, db.sqlite
+
+- [public/](mdc:public): Static assets (SVGs, images).
+
+- [specs/](mdc:specs): (Purpose not detailed; likely for tests or specifications.)
+- [ai_docs/](mdc:ai_docs): (Purpose not detailed; likely for AI-related documentation.)
+
+- [CLAUDE.md](mdc:CLAUDE.md): Rule file for Claude Code (don't use in Cursor).
+- [components.json](mdc:components.json): Component registry or configuration.
+- [oxlint.json](mdc:oxlint.json): Linting configuration.
+- [next.config.ts](mdc:next.config.ts): Next.js configuration.
 - [package.json](mdc:package.json): Project dependencies and scripts.
+- [pnpm-lock.yaml](mdc:pnpm-lock.yaml): Dependency lockfile for pnpm.
+- [postcss.config.mjs](mdc:postcss.config.mjs): PostCSS configuration.
 - [README.md](mdc:README.md): Project documentation and setup instructions.
+- [tsconfig.json](mdc:tsconfig.json): TypeScript configuration.
 
-The main entry point for the application is in [src/app](mdc:src/app) (for routing and page components).
-
-For more details on configuration, see [tsconfig.json](mdc:tsconfig.json) and [postcss.config.mjs](mdc:postcss.config.mjs).
+// This summary omits deeply nested files for brevity. See each directory for more details.
