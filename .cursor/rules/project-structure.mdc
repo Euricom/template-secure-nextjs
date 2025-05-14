@@ -1,0 +1,19 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure Guide
+
+This project is a Next.js application with the following key files and directories:
+
+- [src/](mdc:src): Contains the main application source code, including pages, components, and utilities.
+- [prisma/](mdc:prisma): Contains database schema and related files for Prisma ORM.
+- [public/](mdc:public): Static assets such as images and icons.
+- [next.config.ts](mdc:next.config.ts): Next.js configuration file.
+- [package.json](mdc:package.json): Project dependencies and scripts.
+- [README.md](mdc:README.md): Project documentation and setup instructions.
+
+The main entry point for the application is in [src/app](mdc:src/app) (for routing and page components).
+
+For more details on configuration, see [tsconfig.json](mdc:tsconfig.json) and [postcss.config.mjs](mdc:postcss.config.mjs).
