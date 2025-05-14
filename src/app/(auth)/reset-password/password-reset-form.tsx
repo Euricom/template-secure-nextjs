@@ -16,7 +16,7 @@ export function PasswordResetForm() {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [resetLinkSent, setResetLinkSent] = useState(false)
-  const [resetToken, setResetToken] = useState("")
+  const [resetToken] = useState("")
   const [resetComplete, setResetComplete] = useState(false)
   const [error, setError] = useState("")
 
@@ -36,7 +36,8 @@ export function PasswordResetForm() {
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       setResetLinkSent(true)
-    } catch (err) {
+    } catch (error) {
+      console.error(error)
       setError("Failed to send reset link. Please try again.")
     } finally {
       setIsLoading(false)

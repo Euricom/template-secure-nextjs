@@ -27,8 +27,12 @@ pnpm build
 # Start production server
 pnpm start
 
-# Run linting
+# Run ESLint linting
 pnpm lint
+pnpm lint:fix
+
+# Run all linting and type checking
+pnpm ppr
 
 # Type check the application
 pnpm typecheck
@@ -77,6 +81,21 @@ The project uses TailwindCSS v4 with CSS variables for theming:
 - Geist Sans and Geist Mono fonts are used throughout the application
 - The shadcn/ui components follow the "new-york" style
 - UI components support both light and dark modes
+
+## Code Quality
+
+### Linting & Type Checking
+
+The project uses multiple tools to ensure code quality:
+
+- **Oxlint**: High-performance JavaScript/TypeScript linter focused on correctness, security and best practices
+  - Configured in `oxlint.json` with rules for React, TypeScript, accessibility, and security
+  - Helps detect security issues such as unsafe component usage and XSS vulnerabilities
+  - Runs much faster than ESLint for quick feedback during development
+- **TypeScript**: Static type checking to prevent type-related errors
+- **Prettier**: Code formatting to maintain consistent style
+
+Always run `pnpm ppr` before committing changes to ensure all code quality checks pass.
 
 ## Security Features
 

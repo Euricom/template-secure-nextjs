@@ -1,0 +1,16 @@
+{
+  "extends": ["recommended", "correctness", "security", "react", "typescript", "a11y"],
+  "exclude": ["**/node_modules/**", ".next/**", "**/*.d.ts", "**/dist/**", "**/.turbo/**"],
+  "rules": {
+    "react/no-unsafe-component-will": "error",
+    "react/jsx-no-leaked-render": "error",
+    "react/no-invalid-html-attribute": "error",
+    "security/no-eval": "error",
+    "security/no-unsanitized-jsx-spread": "error",
+    "security/no-cookie-with-unsafe-domain": "error"
+  },
+  "sourceType": "module",
+  "parserOptions": {
+    "ecmaVersion": 2022
+  }
+}
